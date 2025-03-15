@@ -19,8 +19,7 @@ def zip_compress():
 
 def task():
     print("任务执行:", time.ctime())
-    zip_compress()
     # 循环执行
-    threading.Timer(900, zip_compress).start()
+    threading.Timer(60, zip_compress).start() # 900
 
 task()  # 启动定时器
