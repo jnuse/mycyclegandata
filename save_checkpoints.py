@@ -13,8 +13,8 @@ def zip_compress():
         print(f"文件checkpoints.zip不存在")
         os.system('mv test.zip checkpoints.zip')
         print("已创建checkpoints.zip")
-    os.remove("test.zip")
-    print("已删除test.zip")
+    # os.remove("test.zip")
+    # print("已删除test.zip")
 
 
 def task():
