@@ -146,12 +146,15 @@ class CycleGANModel(BaseModel):
         """
         # 真实图像
         pred_real = netD(real)
-        loss_D_real = self.criterionGAN(pred_real, True)
-        # 生成的图像
         pred_fake = netD(fake.detach())
-        loss_D_fake = self.criterionGAN(pred_fake, False)
-        # 合并损失并计算梯度
-        loss_D = (loss_D_real + loss_D_fake) * 0.5
+        # 2. 使用WGAN损失形式
+        loss_D_real = -pred_real.mean()
+        loss_D_fake = pred_fake.mean()
+        # 3. 计算梯度惩罚
+        gp, _ = networks.cal_gradient_penalty(netD, real, fake, self.device, type='mixed', constant=1.0, lambda_gp=10.0)
+
+        # 4. 合并判别器损失
+        loss_D = loss_D_real + loss_D_fake + gp
         loss_D.backward()
         return loss_D
 
