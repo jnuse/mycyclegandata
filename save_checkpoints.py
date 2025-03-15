@@ -2,7 +2,7 @@ import threading
 import os,time
 
 def zip_compress():
-    os.system('zip -r test.zip /kaggle/working/checkpoints')
+    os.system('zip -r test.zip checkpoints')
 
     if os.path.exists("checkpoints.zip"):
         os.remove("checkpoints.zip")
