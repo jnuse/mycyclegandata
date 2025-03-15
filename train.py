@@ -22,7 +22,7 @@ import time
 from options.train_options import TrainOptions
 from data import create_dataset
 from models import create_model
-# from util.visualizer import Visualizer
+from util.visualizer import Visualizer
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -37,12 +37,12 @@ if __name__ == '__main__':
     """
     # param_count = sum(p.numel() for p in model.parameters() if p.requires_grad)
     # print(f"参数总量: {param_count}")
-    from util.util import count_parameters
-    print('Number of parameters in G_A: ', count_parameters(model.netG_A))
-    print('Number of parameters in G_B: ', count_parameters(model.netG_B))
-    print('Number of parameters in D_A: ', count_parameters(model.netD_A))
-    print('Number of parameters in D_B: ', count_parameters(model.netD_B))
-    exit()
+    # from util.util import count_parameters
+    # print('Number of parameters in G_A: ', count_parameters(model.netG_A))
+    # print('Number of parameters in G_B: ', count_parameters(model.netG_B))
+    # print('Number of parameters in D_A: ', count_parameters(model.netD_A))
+    # print('Number of parameters in D_B: ', count_parameters(model.netD_B))
+    # exit()
 
     visualizer = Visualizer(opt)   # create a visualizer that display/save images and plots
     total_iters = 0                # the total number of training iterations

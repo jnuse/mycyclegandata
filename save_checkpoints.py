@@ -19,6 +19,7 @@ def zip_compress():
 
 def task():
     print("任务执行:", time.ctime())
+    zip_compress()
     # 循环执行
     threading.Timer(900, zip_compress).start()
 
