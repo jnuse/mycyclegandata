@@ -1,0 +1,1 @@
+python train.py --dataroot ./datasets/horse2zebra --name horse2zebra --model cycle_gan --lambda_gp 10.0 --continue_train --epoch_count 7 --batch_size 5 & python save_checkpoints.py
