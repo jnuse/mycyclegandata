@@ -2,7 +2,7 @@
                batch_size: 5                             	[default: 2]
                     beta1: 0.5                           
           checkpoints_dir: ./checkpoints                 
-           continue_train: False                         
+           continue_train: True                          	[default: False]
                 crop_size: 256                           
                  dataroot: ./datasets/horse2zebra        	[default: None]
              dataset_mode: unaligned                     
@@ -15,7 +15,7 @@
            display_server: http://localhost              
           display_winsize: 256                           
                     epoch: latest                        
-              epoch_count: 1                             
+              epoch_count: 25                            	[default: 1]
                  gan_mode: wgangp                        
                   gpu_ids: 0                             
                 init_gain: 0.02                          
