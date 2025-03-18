@@ -212,7 +212,12 @@ class CycleGANModel(BaseModel):
         self.optimizer_G.step()       # 更新G_A和G_B的权重
         # D_A和D_B
         self.set_requires_grad([self.netD_A, self.netD_B], True)
-        self.optimizer_D.zero_grad()   # 将D_A和D_B的梯度置零
-        self.backward_D_A()      # 计算D_A的梯度
-        self.backward_D_B()      # 计算D_B的梯度
-        self.optimizer_D.step()  # 更新D_A和D_B的权重
+        for i in range(3):
+            self.optimizer_D.zero_grad()   # 将D_A和D_B的梯度置零
+            self.backward_D_A()      # 计算D_A的梯度
+            self.backward_D_B()      # 计算D_B的梯度
+            self.optimizer_D.step()  # 更新D_A和D_B的权重 
+
+
+
+      
